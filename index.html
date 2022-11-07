@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>The most wonderful time of the year</title>
+    <link rel="icon" type="image/x-icon" href="hat.png">
+
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 id="title">Countdown to Christmas</h1>
+            <div class="time-left">
+                <div>
+                    <p id="days">00</p>
+                    <span>Days</span>
+                </div>
+                <div>
+                    <p id="hours">00</p>
+                    <span>Hours</span>
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <span>Minutes</span>
+                </div>
+                <div>
+                    <p id="seconds">00</p>
+                    <span>Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var year = new Date().getFullYear();
+
+    var countDownDate = new Date("Dec 25, "+ year + " 00:00:00").getTime();
+    var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000*60*60*24));
+        var hours = Math.floor((distance % (1000*60*60*24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000*60*60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000*60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if(days < 25) {
+            document.getElementById("days").style.color = "green";
+            document.getElementById("hours").style.color = "red";
+            document.getElementById("minutes").style.color = "green";
+            document.getElementById("seconds").style.color = "red";
+        }
+
+        if(days == 365 || days == 364) {
+            document.getElementById("title").innerHTML = "Merry Christmas!"
+        }
+
+    },1000);
+
+</script>
+
+</body>
+</html>
