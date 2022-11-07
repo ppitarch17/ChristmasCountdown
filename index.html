@@ -52,6 +52,13 @@
         document.getElementById("minutes").innerHTML = minutes;
         document.getElementById("seconds").innerHTML = seconds;
 
+        if (days < 0) {
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+        }
+
         if(days < 25) {
             document.getElementById("days").style.color = "green";
             document.getElementById("hours").style.color = "red";
